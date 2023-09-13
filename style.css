@@ -58,6 +58,8 @@ body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
+    width: min(100%, 90rem);
+    margin: auto;
 }
 
 /* A elements that don't have a class get default styles */
@@ -129,6 +131,10 @@ header button {
     font-weight: 700;
 }
 
+header button:active {
+    color: var(--clr-secondary);
+}
+
 main section:first-child {
     color: white;
     background-color: var(--clr-primary);
@@ -160,9 +166,15 @@ main section:first-child:after {
     font-family: var(--ff-manrope);
     font-size: 1rem;
     padding: 0.70em 1.5em;
-    border: 0;
+    border: 1px solid var(--clr-secondary);
     color: var(--clr-primary);
     font-weight: 700;
+}
+
+.headlineBox button:active {
+    border: 1px solid var(--clr-secondary);
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
 }
 
 #borderBottom {
@@ -171,10 +183,15 @@ main section:first-child:after {
     color: white; */
     border-color: var(--clr-secondary);
     border-style: solid;
-    font-family: var(--ff-manrope);
 }
 
 .heroImage {
+    height: 6.13494rem;
+    position: relative;
+}
+
+.heroImage img {
+    max-width: none;
     width: 18.64406rem;
     height: 11.13494rem;
 }
@@ -187,10 +204,12 @@ main section:first-child:after {
     color: var(--clr-primary);
     background-color: var(--clr-bg);
     margin-bottom: 4rem;
+    padding-top: clamp(3rem, 20vw, 13rem);
 }
 
 .panel article {
     padding: 1rem;
+    padding-bottom: 5rem;
 }
 
 .panel:after {
@@ -240,6 +259,7 @@ main section:first-child:after {
     flex-direction: column;
     place-items: center;
     padding: 1rem;
+    padding-top: 0;
 }
 
 .imgBox {
@@ -279,15 +299,22 @@ main section:first-child:after {
     font-family: var(--ff-manrope);
     font-weight: 400;
     line-height: 1.75rem;
+    width: 100%;
 }
 
 .founderInfo button {
     padding: 0.69rem 1.47rem;
     color: var(--clr-primary);
     background-color: var(--clr-secondary);
-    border: 0;
+    border: 1px solid var(--clr-secondary);
     font-family: var(--ff-manrope);
     font-weight: 700;
+}
+
+.founderInfo button:active {
+    border: 1px solid var(--clr-secondary);
+    background-color: var(--clr-primary);
+    color: var(--clr-secondary);
 }
 
 footer {
@@ -304,9 +331,18 @@ footer>img {
     margin-bottom: 3rem;
 }
 
+.socialMedia i svg path:active{
+    fill: var(--clr-primary);
+}
+
 /*/userFounder*/
 
-@media screen and (min-width:48rem) {
+@media only screen and (min-width:48rem) {
+
+    .panel {
+        margin-bottom: 1rem;
+    }
+
     .panelItem {
         flex-direction: row;
     }
@@ -314,10 +350,11 @@ footer>img {
     .userFounder {
         flex-direction: row;
         justify-content: center;
+        padding: 2.5rem;
     }
 
     .imgBox {
-        width: 10.94rem;
+        width: 25%;
         height: 10rem;
         position: relative;
         display: block;
@@ -330,29 +367,53 @@ footer>img {
         margin-top: 12rem;
     }
 
-
     .founderInfo p {
         width: 25.125rem;
     }
 
-    .userFounder {
-        padding: 2.5rem;
-    }
 
     .userFounder img {
         position: absolute;
-        top: -12rem;
+        top: -9rem;
         max-width: none;
+    }
+
+    .heroImage img {
+        width: 29.40256rem;
+        height: 16.98981rem;
+
     }
 }
 
-@media screen and (min-width:90rem) {
+@media only screen and (min-width:90rem) {
     .panel {
         flex-direction: row;
-
+        flex-wrap: wrap;
+        margin-bottom: 0;
     }
 
     .panelItem {
         flex-direction: column;
+    }
+
+    .panel article {
+        width: 25.125rem;
+    }
+
+    .userFounder {
+        flex-direction: row;
+    }
+
+    .founderInfo p {
+        width: 37.625rem;
+    }
+
+    .heroImage {
+        height: 11.13494rem;
+    }
+
+    .heroImage img {
+        width: 44.6875rem;
+        height: 26.6875rem;
     }
 }
